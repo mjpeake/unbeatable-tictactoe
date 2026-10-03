@@ -18,6 +18,8 @@ public class TicTacToe extends JFrame {
     private AI ai = game.getAI();
 
     private Canvas canvas;
+    private boolean browserReadySent = false;
+    private static native void browserReady();
 
     public TicTacToe() {
         class CanvasMouseListener implements MouseListener
@@ -70,6 +72,11 @@ public class TicTacToe extends JFrame {
             }
         }
 
+        // The web wrapper supplies its own frame; keep desktop launches unchanged.
+        if (Boolean.getBoolean("tictactoe.web")) {
+            setUndecorated(true);
+            setResizable(false);
+        }
         setTitle("TicTacToe");
         setLayout(new BorderLayout());  // Layout manager for the frame.
 
@@ -93,6 +100,11 @@ public class TicTacToe extends JFrame {
         {
             super.paintComponent(g);
             draw(g);
+            // Tell the wrapper only after the board has actually painted.
+            if (Boolean.getBoolean("tictactoe.web") && !browserReadySent) {
+                browserReadySent = true;
+                browserReady();
+            }
         }
 
         // Called by the canvas' paintComponent method
