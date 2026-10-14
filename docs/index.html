@@ -3,39 +3,43 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#121212">
+  <meta name="theme-color" content="#111111">
   <meta name="description" content="A game of Tic Tac Toe against an unbeatable minimax AI. An original Java project by Matt Peake, playable in your browser.">
   <title>Unbeatable Tic Tac Toe · Matt Peake</title>
-  <link rel="stylesheet" href="style.css?v=5">
+  <link rel="icon" type="image/svg+xml" href="./assets/brand/ridgeline-symbol-soft-light.svg">
+  <link rel="preload" href="./assets/fonts/oxanium.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="./assets/fonts/manrope.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="style.css?v=6">
   <script src="app.js?v=5" defer></script>
 </head>
 <body>
+  <a class="skip" href="#project-info">Skip to project information</a>
   <main class="demo-page">
-    <section class="demo-frame" aria-label="Tic Tac Toe game">
+    <section class="demo-frame" aria-label="Tic Tac Toe game" aria-describedby="game-description">
       <div id="display" aria-label="Java game board" hidden></div>
       <div class="launch" id="launch">
-        <div class="board-mark" aria-hidden="true">
+        <div class="board" aria-hidden="true">
           <span>×</span><span></span><span>○</span>
           <span></span><span>×</span><span></span>
           <span>○</span><span></span><span>×</span>
         </div>
         <h2 id="launch-title">Your move.</h2>
         <p>You, the board, and an unbeatable opponent.</p>
-        <button id="play" type="button">Play game <span aria-hidden="true">↗</span></button>
+        <button class="action primary" id="play" type="button">Play game <span aria-hidden="true">↗</span></button>
         <p class="launch-note" id="launch-note" role="status" aria-live="polite">No download needed.</p>
       </div>
     </section>
-    <div class="demo-meta">
+    <div class="demo-meta" id="project-info" tabindex="-1">
       <h1>Unbeatable Tic Tac Toe</h1>
       <nav aria-label="Project links">
-        <a class="icon-button" href="https://github.com/mjpeake/unbeatable-tictactoe" aria-label="View source on GitHub" title="View source on GitHub">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .8a11.2 11.2 0 0 0-3.54 21.83c.56.1.77-.24.77-.54v-2.09c-3.12.68-3.78-1.32-3.78-1.32-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.68.08-.68 1.13.08 1.72 1.16 1.72 1.16 1 .1.99 2.15 3.27 1.05.1-.73.39-1.22.71-1.5-2.49-.28-5.11-1.25-5.11-5.54 0-1.23.44-2.23 1.15-3.02-.11-.28-.5-1.43.11-2.98 0 0 .94-.3 3.08 1.15a10.7 10.7 0 0 1 5.6 0c2.14-1.45 3.08-1.15 3.08-1.15.61 1.55.22 2.7.11 2.98.72.79 1.15 1.79 1.15 3.02 0 4.3-2.63 5.26-5.13 5.54.4.35.76 1.03.76 2.08v3.06c0 .3.2.65.78.54A11.2 11.2 0 0 0 12 .8Z"/></svg>
+        <a class="action icon-link" href="https://github.com/mjpeake/unbeatable-tictactoe" aria-label="View source on GitHub" title="View source on GitHub">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 .8a11.2 11.2 0 0 0-3.54 21.83c.56.1.77-.24.77-.54v-2.09c-3.12.68-3.78-1.32-3.78-1.32-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.68.08-.68 1.13.08 1.72 1.16 1.72 1.16 1 .1.99 2.15 3.27 1.05.1-.73.39-1.22.71-1.5-2.49-.28-5.11-1.25-5.11-5.54 0-1.23.44-2.23 1.15-3.02-.11-.28-.5-1.43.11-2.98 0 0 .94-.3 3.08 1.15a10.7 10.7 0 0 1 5.6 0c2.14-1.45 3.08-1.15 3.08-1.15.61 1.55.22 2.7.11 2.98.72.79 1.15 1.79 1.15 3.02 0 4.3-2.63 5.26-5.13 5.54.4.35.76 1.03.76 2.08v3.06c0 .3.2.65.78.54A11.2 11.2 0 0 0 12 .8Z"/></svg>
         </a>
-        <a class="icon-button site-button" href="https://www.mattpeake.com/" aria-label="Visit Matt Peake’s website" title="Matt Peake"><span class="logo-mark" aria-hidden="true"></span></a>
+        <a class="action icon-link brand-link" draggable="false" href="https://www.mattpeake.com/" aria-label="Visit Matt Peake’s website" title="Matt Peake"><img src="./assets/brand/ridgeline-symbol-soft-light.svg" alt="" width="28" height="28" draggable="false"></a>
       </nav>
     </div>
     <section class="project-note" aria-label="About this project">
-      <p>Built in Java, powered by minimax. The computer looks ahead through every possible move to find the best outcome. Your challenge: hold it to a draw.</p>
+      <p id="game-description">Built in Java, powered by minimax. The computer looks ahead through every possible move to find the best outcome. Your challenge: hold it to a draw.</p>
       <p>Running in your browser with <a href="https://cheerpj.com/">CheerpJ</a> by Leaning Technologies.</p>
     </section>
   </main>
